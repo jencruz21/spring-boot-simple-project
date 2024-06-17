@@ -1,4 +1,6 @@
-package com.jencruz.taskapplication.tasks;
+package com.jencruz.taskapplication.service;
+
+import com.jencruz.taskapplication.dto.TaskDTO;
 
 import java.util.List;
 

@@ -1,15 +1,10 @@
 package com.jencruz.taskapplication;
 
-import com.jencruz.taskapplication.tasks.Task;
-import com.jencruz.taskapplication.tasks.TaskRepository;
+import com.jencruz.taskapplication.repository.TaskRepository;
 import jakarta.annotation.PostConstruct;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
 
-import java.time.LocalDateTime;
 import java.util.TimeZone;
 
 @SpringBootApplication

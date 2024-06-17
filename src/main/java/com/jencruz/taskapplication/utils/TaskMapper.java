@@ -1,5 +1,7 @@
-package com.jencruz.taskapplication.tasks;
+package com.jencruz.taskapplication.utils;
 
+import com.jencruz.taskapplication.dto.TaskDTO;
+import com.jencruz.taskapplication.model.Task;
 import org.springframework.stereotype.Component;
 
 @Component

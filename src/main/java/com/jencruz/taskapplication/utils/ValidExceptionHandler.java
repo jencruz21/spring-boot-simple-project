@@ -1,4 +1,4 @@
-package com.jencruz.taskapplication.tasks;
+package com.jencruz.taskapplication.utils;
 
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpHeaders;

@@ -1,5 +1,8 @@
-package com.jencruz.taskapplication.tasks;
+package com.jencruz.taskapplication.controller;
 
+import com.jencruz.taskapplication.dto.TaskDTO;
+import com.jencruz.taskapplication.exceptions.TaskNotFoundException;
+import com.jencruz.taskapplication.service.TaskService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

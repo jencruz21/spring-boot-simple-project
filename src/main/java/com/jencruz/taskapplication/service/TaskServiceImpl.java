@@ -1,5 +1,11 @@
-package com.jencruz.taskapplication.tasks;
+package com.jencruz.taskapplication.service;
 
+import com.jencruz.taskapplication.repository.TaskRepository;
+import com.jencruz.taskapplication.service.TaskService;
+import com.jencruz.taskapplication.dto.TaskDTO;
+import com.jencruz.taskapplication.exceptions.TaskNotFoundException;
+import com.jencruz.taskapplication.model.Task;
+import com.jencruz.taskapplication.utils.TaskMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

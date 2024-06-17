@@ -1,4 +1,4 @@
-package com.jencruz.taskapplication.tasks;
+package com.jencruz.taskapplication.model;
 
 import jakarta.persistence.*;
 
