@@ -72,4 +72,13 @@ public class TaskController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping(value = "/{status}")
+    public ResponseEntity<List<TaskDTO>> findTaskByStatus(@PathVariable(value = "status") String status) {
+        try {
+            return new ResponseEntity<>(service.findByStatus(status), HttpStatus.OK);
+        } catch (TaskNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }

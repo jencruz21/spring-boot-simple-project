@@ -125,4 +125,31 @@ public class TaskRepositoryTests {
         Assertions.assertThat(task2).isNotNull();
         Assertions.assertThat(tasks.size()).isLessThan(1);
     }
+
+    @Test
+    public void TaskRepository_findTasksByStatus_ReturnsTasksCompleted() {
+        Task task1 = Task.builder()
+                .taskName("demo_task1")
+                .status("COMPLETED")
+                .description("this is a demo task1")
+                .createdAt(LocalDateTime.now())
+                .updatedAt(LocalDateTime.now())
+                .build();
+        Task task2 = Task.builder()
+                .taskName("demo_task2")
+                .status("COMPLETED")
+                .description("this is a demo task2")
+                .createdAt(LocalDateTime.now())
+                .updatedAt(LocalDateTime.now())
+                .build();
+
+        Task result1 = taskRepository.save(task1);
+        Task result2 = taskRepository.save(task2);
+        List<Task> tasks = taskRepository.findAll();
+
+        Assertions.assertThat(result1).isNotNull();
+        Assertions.assertThat(result2).isNotNull();
+        Assertions.assertThat(tasks).isNotEmpty();
+        Assertions.assertThat(tasks.size()).isGreaterThan(0);
+    }
 }
