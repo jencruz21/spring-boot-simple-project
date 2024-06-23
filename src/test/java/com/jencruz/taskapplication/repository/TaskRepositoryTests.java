@@ -83,6 +83,30 @@ public class TaskRepositoryTests {
     }
 
     @Test
+    public void TaskRepository_UpdateTask_ReturnsUpdatedTask() {
+        Task task1 = Task.builder()
+                .taskName("demo_task")
+                .status("PENDING")
+                .description("this is a demo task")
+                .createdAt(LocalDateTime.now())
+                .updatedAt(LocalDateTime.now())
+                .build();
+        Task task2 = taskRepository.save(task1);
+
+        Task task3 = taskRepository.findById(task2.getId()).get();
+        task3.setTaskName("updated task");
+        task3.setDescription("updated description");
+        task3.setStatus("COMPLETED");
+        Task result = taskRepository.save(task3);
+
+        Assertions.assertThat(task3).isNotNull();
+        Assertions.assertThat(result).isNotNull();
+        Assertions.assertThat(result.getTaskName()).isEqualTo("updated task");
+        Assertions.assertThat(result.getDescription()).isEqualTo("updated description");
+        Assertions.assertThat(result.getStatus()).isEqualTo("COMPLETED");
+    }
+
+    @Test
     public void TaskRepository_DeleteById_ReturnsTask() {
         Task task1 = Task.builder()
                 .taskName("demo_task")
