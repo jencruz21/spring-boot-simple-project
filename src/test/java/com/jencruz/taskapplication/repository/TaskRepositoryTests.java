@@ -123,7 +123,7 @@ public class TaskRepositoryTests {
         List<Task> tasks = taskRepository.findAll();
 
         Assertions.assertThat(task2).isNotNull();
-        Assertions.assertThat(tasks.size()).isLessThan(1);
+        Assertions.assertThat(tasks.size()).isEqualTo(0);
     }
 
     @Test
@@ -150,6 +150,6 @@ public class TaskRepositoryTests {
         Assertions.assertThat(result1).isNotNull();
         Assertions.assertThat(result2).isNotNull();
         Assertions.assertThat(tasks).isNotEmpty();
-        Assertions.assertThat(tasks.size()).isGreaterThan(0);
+        Assertions.assertThat(tasks.size()).isEqualTo(2);
     }
 }
