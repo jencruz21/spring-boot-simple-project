@@ -2,6 +2,7 @@ package com.jencruz.taskapplication;
 
 import com.jencruz.taskapplication.repository.TaskRepository;
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -12,6 +13,7 @@ public class TaskApplication {
 
     TaskRepository repository;
 
+    @Autowired
     public TaskApplication(TaskRepository repository) {
         this.repository = repository;
     }

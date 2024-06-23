@@ -94,4 +94,12 @@ public class TaskServiceImpl implements TaskService {
         Task task = repository.findById(id).orElseThrow(() -> new TaskNotFoundException("No task found"));
         repository.deleteById(task.getId());
     }
+
+    @Override
+    public List<TaskDTO> findByStatus(String status) {
+        return repository.findByStatus(status)
+                .stream()
+                .map(taskMapper::mapToTaskDTO)
+                .toList();
+    }
 }

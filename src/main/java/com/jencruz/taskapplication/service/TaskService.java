@@ -15,5 +15,7 @@ public interface TaskService {
 
     TaskDTO updateTaskStatus(String id, String taskStatus);
 
+    List<TaskDTO> findByStatus(String status);
+
     void deleteTask(String id);
 }
