@@ -1,4 +1,4 @@
-package com.jencruz.taskapplication.utils;
+package com.jencruz.taskapplication.advice;
 
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpHeaders;
@@ -15,10 +15,11 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import java.util.HashMap;
 import java.util.List;
 
-@RestControllerAdvice
-public class ValidExceptionHandler {
+@ControllerAdvice
+public class ValidExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(value = MethodArgumentNotValidException.class)
+
+    @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
             MethodArgumentNotValidException ex,
             HttpHeaders headers,

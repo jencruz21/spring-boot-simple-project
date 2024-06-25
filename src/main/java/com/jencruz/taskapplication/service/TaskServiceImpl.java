@@ -6,6 +6,7 @@ import com.jencruz.taskapplication.dto.TaskDTO;
 import com.jencruz.taskapplication.exceptions.TaskNotFoundException;
 import com.jencruz.taskapplication.model.Task;
 import com.jencruz.taskapplication.utils.TaskMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -18,6 +19,7 @@ public class TaskServiceImpl implements TaskService {
     private final TaskRepository repository;
     private final TaskMapper taskMapper;
 
+    @Autowired
     public TaskServiceImpl(TaskRepository repository, TaskMapper taskMapper) {
         this.repository = repository;
         this.taskMapper = taskMapper;
