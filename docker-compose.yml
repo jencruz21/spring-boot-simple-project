@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  task_app:
+    container_name: task-app-container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+  mysql:
+    container_name: container-mysql
+    image: mysql
+    hostname: 127.0.0.1
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: tasks
+    volumes:
+      - mysql-data:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  mysql-data:

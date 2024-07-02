@@ -115,8 +115,8 @@ public class TaskServiceTest {
 
         when(taskMapper.mapToTask(taskDTO)).thenReturn(task);
         when(taskRepository.findById(taskId)).thenReturn(optionalTask);
-        when(taskRepository.save(Mockito.any(Task.class))).thenReturn(task);
-        when(taskMapper.mapToTaskDTO(Mockito.any(Task.class))).thenReturn(taskDTO);
+        when(taskRepository.save(optionalTask.get())).thenReturn(task);
+        when(taskMapper.mapToTaskDTO(task)).thenReturn(taskDTO);
 
         TaskDTO result = taskService.updateTask(taskDTO, taskId);
 
@@ -130,5 +130,15 @@ public class TaskServiceTest {
         Mockito.verify(taskRepository).findById(taskId);
         Mockito.verify(taskRepository).save(Mockito.any(Task.class));
         Mockito.verify(taskMapper).mapToTaskDTO(Mockito.any(Task.class));
+    }
+
+    @Test
+    public void TaskService_deleteTask_ReturnsVoid() {
+        String taskId = "1";
+
+        Optional<Task> optionalTask = Optional.of(task);
+        when(taskRepository.findById(taskId)).thenReturn(optionalTask);
+
+        org.junit.jupiter.api.Assertions.assertAll(() -> taskService.deleteTask(taskId));
     }
 }

@@ -4,6 +4,7 @@ import com.jencruz.taskapplication.dto.TaskDTO;
 import com.jencruz.taskapplication.exceptions.TaskNotFoundException;
 import com.jencruz.taskapplication.service.TaskService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -18,6 +19,7 @@ public class TaskController {
 
     private final TaskService service;
 
+    @Autowired
     public TaskController(TaskService service) {
         this.service = service;
     }
