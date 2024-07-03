@@ -1,5 +1,7 @@
 FROM openjdk:17-alpine
 
-COPY target/TaskApplication-0.0.1-SNAPSHOT.jar app.jar
+WORKDIR app
 
-CMD ["java", "-jar", "/app.jar"]
+COPY target/TaskApplication-0.0.1-SNAPSHOT.jar .
+
+CMD ["java", "-jar", "./TaskApplication-0.0.1-SNAPSHOT.jar"]

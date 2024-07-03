@@ -5,16 +5,21 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: task-app-image
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/tasks?useSSL=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: admin
     ports:
       - "8080:8080"
     depends_on:
       - mysql
+    restart: on-failure
   mysql:
     container_name: container-mysql
-    image: mysql
-    hostname: 127.0.0.1
+    image: mysql:5.7
     ports:
-      - "3307:3306"
+      - "3306:3306"
     environment:
       MYSQL_USERNAME: root
       MYSQL_ROOT_PASSWORD: admin
