@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 public class TaskServiceImpl implements TaskService {
@@ -41,7 +43,7 @@ public class TaskServiceImpl implements TaskService {
                 .findAll()
                 .stream()
                 .map(taskMapper::mapToTaskDTO)
-                .toList();
+                .collect(Collectors.toList());
 
         if (taskDTOS.isEmpty()) {
             throw new TaskNotFoundException("NO TASKS FOUND!");

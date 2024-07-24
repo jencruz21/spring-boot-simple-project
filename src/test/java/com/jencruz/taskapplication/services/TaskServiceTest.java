@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 @ExtendWith(MockitoExtension.class)
 public class TaskServiceTest {
@@ -139,6 +140,6 @@ public class TaskServiceTest {
         Optional<Task> optionalTask = Optional.of(task);
         when(taskRepository.findById(taskId)).thenReturn(optionalTask);
 
-        org.junit.jupiter.api.Assertions.assertAll(() -> taskService.deleteTask(taskId));
+        assertAll(() -> taskService.deleteTask(taskId));
     }
 }
