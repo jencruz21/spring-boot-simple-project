@@ -26,20 +26,12 @@ public class TaskController {
 
     @GetMapping
     public ResponseEntity<List<TaskDTO>> getTasks() {
-        try {
-            return new ResponseEntity<>(service.getTasks(), HttpStatus.OK);
-        } catch (TaskNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return new ResponseEntity<>(service.getTasks(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<TaskDTO> getTask(@PathVariable(value = "id") String id) {
-        try {
-            return ResponseEntity.ok(service.getTask(id));
-        } catch (TaskNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return ResponseEntity.ok(service.getTask(id));
     }
 
     @PostMapping
@@ -49,38 +41,23 @@ public class TaskController {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<TaskDTO> updateTask(@PathVariable(value = "id") String id, @RequestBody TaskDTO taskDTO) {
-        try {
-            return ResponseEntity.ok(service.updateTask(taskDTO, id));
-        } catch (TaskNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return ResponseEntity.ok(service.updateTask(taskDTO, id));
     }
 
     @PutMapping(value = "/{id}/status")
-    public ResponseEntity<TaskDTO> updateTaskStatus(@PathVariable(value = "id") String id, @Valid @RequestBody TaskDTO taskDTO) {
-        try {
-            return new ResponseEntity<>(service.updateTaskStatus(id, taskDTO.getStatus()), HttpStatus.OK);
-        } catch (TaskNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<TaskDTO> updateTaskStatus(@PathVariable(value = "id") String id,
+            @Valid @RequestBody TaskDTO taskDTO) {
+        return new ResponseEntity<>(service.updateTaskStatus(id, taskDTO.getStatus()), HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<HttpStatus> deleteTask(@PathVariable(value = "id") String id) {
-        try {
-            service.deleteTask(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch (TaskNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        service.deleteTask(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping(value = "/{status}")
+    @GetMapping(value = "/status/{status}")
     public ResponseEntity<List<TaskDTO>> findTaskByStatus(@PathVariable(value = "status") String status) {
-        try {
-            return new ResponseEntity<>(service.findByStatus(status), HttpStatus.OK);
-        } catch (TaskNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return new ResponseEntity<>(service.findByStatus(status), HttpStatus.OK);
     }
 }
