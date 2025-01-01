@@ -1,6 +1,7 @@
-package com.jencruz.taskapplication.service;
+package com.jencruz.taskapplication.service.impl;
 
 import com.jencruz.taskapplication.repository.TaskRepository;
+import com.jencruz.taskapplication.service.TaskService;
 import com.jencruz.taskapplication.dto.TaskDTO;
 import com.jencruz.taskapplication.exceptions.TaskNotFoundException;
 import com.jencruz.taskapplication.model.Task;
