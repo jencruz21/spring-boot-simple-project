@@ -53,7 +53,7 @@ public class ApplicationConfig {
         return configuration.getAuthenticationManager();
     }
 
-    @Bean 
+    @Bean(name = "customAuthenticationProvider") 
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(userDetails());

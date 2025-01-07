@@ -1,5 +1,5 @@
 package com.jencruz.taskapplication.model.types;
 
-public enum Roles {
+public enum Role {
     
 }
