@@ -11,4 +11,4 @@ export USER_PASSWORD=12345
 mvn clean install
 
 docker-compose build
-docker-compose up
+docker-compose up -d

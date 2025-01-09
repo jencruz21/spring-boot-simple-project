@@ -1,4 +1,4 @@
-package com.jencruz.taskapplication.advice;
+package com.jencruz.taskapplication.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,11 +8,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.jencruz.taskapplication.exceptions.TaskNotFoundException;
-
 
 @RestControllerAdvice
-public class ValidExceptionHandler {
+public class ExceptionHandlerAdvice {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
