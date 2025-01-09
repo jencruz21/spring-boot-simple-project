@@ -39,7 +39,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                        .requestMatchers("/v1/task/**").hasAnyRole("task_app_ADMIN", "task_app_USER")
+                        .requestMatchers("/").permitAll()
                         .requestMatchers(OPENAPI_WHITELIST).permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
@@ -53,5 +53,4 @@ public class SecurityConfig {
                 )
                 .build();
     }
-
 }
